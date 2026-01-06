@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="幽魂騎士">
+  <rect width="480" height="320" fill="#e6e1f4" />
+  <rect y="210" width="480" height="110" fill="#b4b0c4" />
+  <circle cx="240" cy="130" r="50" fill="#ffffff" opacity="0.8" />
+  <rect x="210" y="170" width="60" height="60" rx="10" fill="#7a4bb8" />
+  <rect x="230" y="190" width="20" height="60" rx="10" fill="#56307a" />
+  <text x="24" y="290" font-size="22" fill="#3c195e" font-family="sans-serif">幽魂騎士</text>
+</svg>

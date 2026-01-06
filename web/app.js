@@ -5,6 +5,12 @@ const heroChoices = [
     description: "穩定輸出，可在一次失敗檢定後 +2 修正。",
     bonus: { force: 2 },
     perk: "guard",
+    image: "images/hero_fighter.svg",
+    flavor: [
+      "肩負鋼鐵意志，你是隊伍的壁壘。",
+      "盾牌微光映出你的決心。",
+      "你的步伐穩健，戰意昂揚。",
+    ],
   },
   {
     id: "rogue",
@@ -12,6 +18,12 @@ const heroChoices = [
     description: "擅長詭計與潛行，特定行動 +3 修正。",
     bonus: { sneak: 3 },
     perk: "sneak",
+    image: "images/hero_rogue.svg",
+    flavor: [
+      "陰影是你的盟友，靜默是你的武器。",
+      "你在縫隙間穿梭，目光敏銳。",
+      "風聲掩護你的腳步，戰局由你掌控。",
+    ],
   },
   {
     id: "mage",
@@ -19,6 +31,12 @@ const heroChoices = [
     description: "可以重擲一次魔法檢定。",
     bonus: { spell: 3 },
     perk: "reroll",
+    image: "images/hero_mage.svg",
+    flavor: [
+      "符文在指尖流轉，智慧引導你的法術。",
+      "魔力漩渦緩緩成形，力量蓄勢待發。",
+      "你低聲吟唱，世界的節奏跟著改變。",
+    ],
   },
 ];
 
@@ -27,6 +45,12 @@ const encounters = [
     title: "廢棄哨塔",
     text: "森林中的哨塔阻擋前路，一名哥布林在上方巡邏。",
     difficulty: 12,
+    image: "images/scene_tower.svg",
+    flavor: [
+      "風吹過朽木，塔樓發出尖銳的聲音。",
+      "你聞到泥土與煙灰混雜的味道。",
+      "巡邏的身影投下忽隱忽現的影子。",
+    ],
     choices: [
       {
         label: "衝上階梯正面突破",
@@ -58,6 +82,12 @@ const encounters = [
     title: "搖晃吊橋",
     text: "吊橋連接峽谷兩端，木板嘎吱作響。",
     difficulty: 13,
+    image: "images/scene_bridge.svg",
+    flavor: [
+      "峽谷深不見底，風聲從下方呼嘯。",
+      "繩索在風中顫動，你的掌心微汗。",
+      "對岸的路標在霧氣中若隱若現。",
+    ],
     choices: [
       {
         label: "穩定步伐慢慢通過",
@@ -89,6 +119,12 @@ const encounters = [
     title: "受傷的狼",
     text: "一頭受傷的狼擋住道路，低吼卻無力。",
     difficulty: 11,
+    image: "images/scene_wolf.svg",
+    flavor: [
+      "狼的呼吸急促，你看見牠的傷口。",
+      "落葉輕響，牠的耳朵警覺地抖動。",
+      "你感受到牠並非敵意，而是恐懼。",
+    ],
     choices: [
       {
         label: "以食物安撫牠",
@@ -120,6 +156,12 @@ const encounters = [
     title: "遺跡之門",
     text: "你抵達破損神殿，魔法封印之門擋住去路。",
     difficulty: 14,
+    image: "images/scene_shrine.svg",
+    flavor: [
+      "古老的符文在門上緩緩閃耀。",
+      "石壁上的裂痕透露著年代的重量。",
+      "沉重的門扉像在測試你的決心。",
+    ],
     choices: [
       {
         label: "用力量撬開",
@@ -153,6 +195,12 @@ const finale = {
   title: "幽魂騎士",
   text: "遺物被幽魂騎士守護，你必須完成最後考驗。",
   baseDifficulty: 12,
+  image: "images/scene_finale.svg",
+  flavor: [
+    "霧氣繚繞，盔甲反射著微光。",
+    "冷意爬上脊背，騎士的目光鎖定你。",
+    "時間似乎放慢，最後一戰即將展開。",
+  ],
   choices: [
     {
       label: "正面決鬥",
@@ -193,6 +241,8 @@ const encounterTitle = document.getElementById("encounter-title");
 const encounterText = document.getElementById("encounter-text");
 const encounterChoices = document.getElementById("encounter-choices");
 const heroChoiceContainer = document.getElementById("hero-choices");
+const heroImage = document.getElementById("hero-image");
+const encounterImage = document.getElementById("encounter-image");
 const resultTitle = document.getElementById("result-title");
 const resultText = document.getElementById("result-text");
 const restartButton = document.getElementById("restart");
@@ -210,6 +260,9 @@ const addLog = (message) => {
   logList.prepend(item);
 };
 
+const pickRandom = (items) =>
+  items[Math.floor(Math.random() * items.length)];
+
 const resolveCheck = ({ difficulty, bonus, allowReroll }) => {
   let roll = rollD20();
   let total = roll + bonus;
@@ -226,7 +279,9 @@ const resolveCheck = ({ difficulty, bonus, allowReroll }) => {
 const renderEncounter = () => {
   const encounter = encounters[state.encounterIndex];
   encounterTitle.textContent = encounter.title;
-  encounterText.textContent = encounter.text;
+  encounterText.textContent = `${encounter.text} ${pickRandom(encounter.flavor)}`;
+  encounterImage.src = encounter.image;
+  encounterImage.alt = encounter.title;
   encounterChoices.innerHTML = "";
   encounter.choices.forEach((choice) => {
     const button = document.createElement("button");
@@ -238,7 +293,9 @@ const renderEncounter = () => {
 
 const renderFinale = () => {
   encounterTitle.textContent = finale.title;
-  encounterText.textContent = `${finale.text} 目前動能：${state.momentum}`;
+  encounterText.textContent = `${finale.text} ${pickRandom(finale.flavor)} 目前動能：${state.momentum}`;
+  encounterImage.src = finale.image;
+  encounterImage.alt = finale.title;
   encounterChoices.innerHTML = "";
   finale.choices.forEach((choice) => {
     const button = document.createElement("button");
@@ -300,7 +357,10 @@ const startAdventure = (hero) => {
   state.rerollAvailable = hero.perk === "reroll";
   logList.innerHTML = "";
   lastRoll.textContent = "-";
+  heroImage.src = hero.image;
+  heroImage.alt = hero.name;
   addLog(`你選擇了 ${hero.name}。冒險開始！`);
+  addLog(pickRandom(hero.flavor));
   updateStats();
   introPanel.classList.add("hidden");
   resultPanel.classList.add("hidden");

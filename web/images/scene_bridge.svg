@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="搖晃吊橋">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4f3ff" />
+      <stop offset="1" stop-color="#e8f7ff" />
+    </linearGradient>
+  </defs>
+  <rect width="480" height="320" fill="url(#sky)" />
+  <rect y="200" width="480" height="120" fill="#7fa2b8" />
+  <rect x="40" y="160" width="160" height="60" fill="#c7d1b0" />
+  <rect x="280" y="160" width="160" height="60" fill="#c7d1b0" />
+  <path d="M120 160 C 200 130, 280 130, 360 160" fill="none" stroke="#8b6a4a" stroke-width="6" />
+  <line x1="120" y1="160" x2="120" y2="110" stroke="#8b6a4a" stroke-width="4" />
+  <line x1="360" y1="160" x2="360" y2="110" stroke="#8b6a4a" stroke-width="4" />
+  <text x="24" y="290" font-size="22" fill="#2f4a6d" font-family="sans-serif">搖晃吊橋</text>
+</svg>

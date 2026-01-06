@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="受傷的狼">
+  <rect width="480" height="320" fill="#f4f2ec" />
+  <rect y="210" width="480" height="110" fill="#d7dbc6" />
+  <polygon points="80,230 120,190 160,230" fill="#8b9a6d" />
+  <polygon points="360,230 400,190 440,230" fill="#8b9a6d" />
+  <circle cx="220" cy="170" r="28" fill="#6b5c4d" />
+  <rect x="190" y="190" width="80" height="30" rx="10" fill="#6b5c4d" />
+  <circle cx="210" cy="165" r="6" fill="#f4f2ec" />
+  <text x="24" y="290" font-size="22" fill="#4a3a2b" font-family="sans-serif">受傷的狼</text>
+</svg>

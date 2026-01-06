@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>五分鐘 D&D 小冒險</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="tag">五分鐘桌遊</p>
+          <h1>五分鐘 D&D 小冒險</h1>
+          <p class="subtitle">
+            在五分鐘內完成一趟短篇冒險，擲骰、做選擇、奪回遺物。
+          </p>
+        </div>
+        <div class="stats">
+          <div>
+            <span class="label">英雄</span>
+            <strong id="hero-name">尚未選擇</strong>
+          </div>
+          <div>
+            <span class="label">動能</span>
+            <strong id="momentum">0</strong>
+          </div>
+          <div>
+            <span class="label">擲骰</span>
+            <strong id="last-roll">-</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel" id="intro-panel">
+        <h2>選擇你的英雄</h2>
+        <p>每位英雄都有不同優勢與一次性能力。</p>
+        <div class="choices" id="hero-choices"></div>
+      </section>
+
+      <section class="panel hidden" id="encounter-panel">
+        <h2 id="encounter-title">冒險開始</h2>
+        <p id="encounter-text"></p>
+        <div class="choices" id="encounter-choices"></div>
+      </section>
+
+      <section class="panel hidden" id="result-panel">
+        <h2 id="result-title">冒險結束</h2>
+        <p id="result-text"></p>
+        <button class="primary" id="restart">再玩一次</button>
+      </section>
+
+      <section class="panel log">
+        <h2>冒險紀錄</h2>
+        <ul id="log"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
